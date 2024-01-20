@@ -7,12 +7,49 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
+  width: 100%;
+  height: 100%;
+  background-color: #b6e4fd;
+  background-image: url("https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5X0NEUXFVd0NBcWc");
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+body a {
+  color: #b8956b;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+  text-decoration: none;
+}
+
+body:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 0;
+  animation: thunder-bg 6s infinite;
+}
+
+/* PIANO */
+.container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background-color: #e3f2fd;
+  align-items: center;
 }
 
 .wrapper {
@@ -20,6 +57,7 @@ body {
   width: 780px;
   border-radius: 20px;
   padding: 35px 40px;
+  margin-top: 10px;
 }
 
 .wrapper__header {
@@ -48,6 +86,7 @@ body {
 .volume-slider input {
   outline: none;
   accent-color: #fff;
+  z-index: 2;
 }
 
 .key-input {
@@ -59,6 +98,7 @@ body {
   cursor: pointer;
   background-color: #4b4b4b;
   position: relative;
+  z-index: 2;
 
   &::before {
     content: "";
@@ -82,6 +122,7 @@ body {
 .piano-keys {
   display: flex;
   margin-top: 40px;
+  z-index: 2;
 }
 
 .piano-keys .key {
@@ -91,6 +132,7 @@ body {
   list-style: none;
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
 }
 
 .piano-keys .black {
@@ -138,4 +180,975 @@ body {
 
 .piano-keys .key.hide span {
   display: none;
+}
+
+/* CLOUDS */
+
+.clouds {
+  background-image: url("https://s.cdpn.io/15514/clouds_2.png");
+  animation: clouds-loop-1 20s infinite linear;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  display: none;
+  opacity: 0.4;
+}
+
+.clouds-2 {
+  background-image: url("https://s.cdpn.io/15514/clouds_1.png");
+  animation: clouds-loop-2 15s infinite linear;
+  z-index: 0;
+}
+
+.clouds-3 {
+  background-image: url("https://s.cdpn.io/15514/clouds_3.png");
+  animation: clouds-loop-3 17s infinite linear;
+  z-index: 0;
+}
+
+@keyframes clouds-loop-1 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes clouds-loop-2 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes clouds-loop-3 {
+  to {
+    background-position: -1579px 0;
+  }
+}
+
+/* CHARACTERS */
+
+/* KRAKEN */
+
+.kraken {
+  width: 400px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  right: 11%;
+  bottom: 0;
+  left: 100px;
+  /* display: none; */
+}
+
+.krakenActive {
+  animation: krakenSwim 25s linear forwards;
+}
+
+.krakenDead {
+  transform: rotate(180deg);
+  transition: transform 1s ease;
+  left: 500px;
+}
+
+@keyframes krakenSwim {
+  0% {
+    transform: translateX(-100%) translateY(100%);
+  }
+  50% {
+    transform: translateX(0%) translateY(60%);
+  }
+  100% {
+    transform: translateX(100%) translateY(5%);
+  }
+}
+
+.krakenSink {
+  transform: rotate(90deg);
+  animation: jsSink 5s linear forwards;
+}
+
+@keyframes jsSink {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* CAPYBARA */
+
+.capybara {
+  width: 200px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  right: 11%;
+  bottom: 0;
+  /* display: none; */
+}
+
+.sadCapy {
+  width: 150px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  right: 21%;
+  bottom: 0;
+  display: none;
+}
+
+.capybaraActive {
+  animation: swim 14s linear forwards;
+}
+
+.capybaraDance {
+  transform-style: preserve-3d;
+  animation: rotateImage3D 3s linear infinite;
+  right: 21%;
+}
+
+@keyframes rotateImage3D {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes swim {
+  0% {
+    transform: translateX(100%) translateY(100%);
+  }
+  50% {
+    transform: translateX(0%) translateY(20%);
+  }
+  100% {
+    transform: translateX(-100%) translateY(5%);
+  }
+}
+
+.capybaraMove {
+  animation: moveCapy 10s linear forwards;
+}
+
+@keyframes moveCapy {
+  0% {
+    transform: translateX(0%) translateY(0);
+  }
+  25% {
+    transform: translateX(-50%) translateY(20%);
+  }
+  50% {
+    transform: translateX(-70%) translateY(0%);
+  }
+  75% {
+    transform: translateX(-100%) translateY(20%);
+  }
+  100% {
+    transform: translateX(-200%) translateY(0%);
+  }
+}
+
+/* TOOTHLESS */
+
+.toothless {
+  width: 300px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  right: 0%;
+  bottom: 0;
+  animation: moveToothless 15s linear infinite;
+  display: none;
+}
+
+.toothless::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 100%;
+  background-image: url("https://media.tenor.com/RcX3hUY425kAAAAj/toothless-dragon-toothless.gif");
+  background-size: cover;
+  animation: moveToothless 15s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes moveToothless {
+  0% {
+    transform: translateX(-600%);
+  }
+  100% {
+    transform: translateX(calc(100vw - 300px)); /* Adjust the width of the Toothless image */
+  }
+}
+
+.dancingImages {
+  display: none;
+}
+
+.dancingLisa, .dancingJake {
+  width: 300px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  animation: moveDanceImage 15s linear infinite;
+  right: 0%;
+  bottom: 0;
+}
+
+.dancingLisa::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 100%;
+  background-size: cover;
+  animation: moveDanceImage 15s linear infinite;
+  animation-delay: 1s;
+}
+
+.dancingJake {
+  right: 35%
+}
+
+@keyframes moveDanceImage {
+  0% {
+    transform: translateX(-600%);
+  }
+  100% {
+    transform: translateX(calc(100vw - 300px)); /* Adjust the width of the Toothless image */
+  }
+}
+
+/* JACK SPARROW */
+
+.jack-sparrow {
+  width: 150px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  position: absolute;
+  right: 11%;
+  bottom: 0;
+  left: 60%;
+}
+
+.jsActive {
+  animation: jsSwim 14s linear forwards;
+}
+
+@keyframes jsSwim {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(60%);
+  }
+  100% {
+    transform: translateY(5%);
+  }
+}
+
+.jsShooting {
+  animation: shooting 0.2s linear forwards;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-250%);
+  }
+}
+
+.jsDead {
+  transform: rotate(90deg);
+  transition: transform 2s ease;
+  left: 40%;
+}
+
+.jsSink {
+  transform: rotate(90deg);
+  animation: jsSink 5s linear forwards;
+}
+
+@keyframes jsSink {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* SANS UNDERTALE */
+
+.sans-undertale {
+  width: 250px;
+  height: 300px;
+  z-index: 0;
+  margin: 0;
+  opacity: 1;
+  position: absolute;
+  right: 11%;
+  bottom: 0;
+  top: 120%;
+  left: 30%;
+  display: none;
+}
+
+.sansArrive {
+  animation: arrive 10s linear forwards;
+}
+
+@keyframes arrive {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%) translateY(0%);
+    opacity: 1;
+  }
+}
+
+.sansDead {
+  transform: rotate(90deg);
+}
+
+.sansFade {
+  animation: sansFade 5s linear forwards;
+}
+
+@keyframes sansFade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* RICK AND MORTY */
+
+.rickMorty {
+  width: 100%;
+  height: 100%;
+  display: none;
+  border-radius: 50%;
+}
+
+.rmArrive {
+  animation: rmArrive 10s linear;
+}
+
+@keyframes rmArrive {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.rickMortyAwayImage {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.rickMortyAway {
+  animation: rmAway 7s linear forwards;
+}
+
+@keyframes rmAway {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* WATER WAVES */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-top: 160px;
+  position: relative;
+  overflow-y: hidden;
+  /* display: none; */
+}
+
+.Ocean {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.Wave {
+  width: 100%;
+  fill: #4fc3f7;
+}
+
+/* LIGHTNING */
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.canvaswrap {
+  display: block;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#canvas3 {
+  z-index: 0;
+}
+
+#canvas2 {
+  z-index: 0;
+}
+
+#canvas1 {
+  z-index: 0;
+}
+
+.thunder {
+  @-webkit-keyframes thunder-bg {
+    0% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+    9% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+    10% {
+      background-color: rgba(59, 59, 59, 0.3);
+    }
+    10.5% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+    80% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+    82% {
+      background-color: rgba(59, 59, 59, 0.3);
+    }
+    83% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+    83.5% {
+      background-color: rgba(59, 59, 59, 0.3);
+    }
+    100% {
+      background-color: rgba(34, 34, 34, 0.9);
+    }
+  }
+  animation: thunder-bg 6s infinite;
+}
+
+/* FIREWORKS */
+
+.firework-wrapper {
+  display: none;
+}
+
+.firework,
+.firework::before,
+.firework::after {
+  --initialSize: 0.5vmin;
+  --finalSize: 45vmin;
+  --particleSize: 0.2vmin;
+  --color1: yellow;
+  --color2: khaki;
+  --color3: white;
+  --color4: lime;
+  --color5: gold;
+  --color6: mediumseagreen;
+  --y: -30vmin;
+  --x: -50%;
+  --initialY: 60vmin;
+  content: "";
+  animation: firework 2s infinite;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    /* bottom right */ radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+    /* bottom left */ radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    /* top left */ radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    /* top right */ radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%;
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+.firework::before {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+}
+
+.firework::after {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+}
+
+.firework:nth-child(2) {
+  --x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 85%;
+  top: 70%;
+  animation-delay: -0.4s;
+}
+
+.firework:nth-child(4) {
+  --x: 50vmin;
+}
+
+.firework:nth-child(4),
+.firework:nth-child(4)::before,
+.firework:nth-child(4)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;
+  --finalSize: 40vmin;
+  left: 55%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(5) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(5),
+.firework:nth-child(5)::before,
+.firework:nth-child(5)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 35%;
+  top: 80%;
+  animation-delay: -0.5s;
+}
+
+.firework:nth-child(6) {
+  --x: -50vmin;
+  --y: -40vmin;
+}
+
+.firework:nth-child(6),
+.firework:nth-child(6)::before,
+.firework:nth-child(6)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 80%;
+  top: 50%;
+  animation-delay: -0.1s;
+}
+
+.firework:nth-child(7) {
+  --x: -50vmin;
+  --y: -40vmin;
+}
+
+.firework:nth-child(7),
+.firework:nth-child(7)::before,
+.firework:nth-child(7)::after {
+  --color1: crimson;
+  --color2: indianred;
+  --color3: darkred;
+  --color4: firebrick;
+  --color5: lightcoral;
+  --color6: tomato;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 70%;
+  animation-delay: -0.5s;
+}
+
+.firework:nth-child(8) {
+  --x: -50vmin;
+  --y: -40vmin;
+}
+
+.firework:nth-child(8),
+.firework:nth-child(8)::before,
+.firework:nth-child(8)::after {
+  --color1: limegreen;
+  --color2: mediumseagreen;
+  --color3: forestgreen;
+  --color4: green;
+  --color5: darkgreen;
+  --color6: seagreen;
+  --finalSize: 35vmin;
+  left: 10%;
+  top: 60%;
+  animation-delay: -0.5s;
+}
+
+.firework:nth-child(9) {
+  --x: -20vmin;
+  --y: -40vmin;
+}
+
+.firework:nth-child(9),
+.firework:nth-child(9)::before,
+.firework:nth-child(9)::after {
+  --color1: gold;
+  --color2: yellow;
+  --color3: khaki;
+  --color4: lightgoldenrodyellow;
+  --color5: moccasin;
+  --color6: palegoldenrod;
+  --finalSize: 35vmin;
+  left: 20%;
+  top: 50%;
+  animation-delay: -0.2s;
+}
+
+.firework:nth-child(10) {
+  --x: -50vmin;
+  --y: -40vmin;
+}
+
+.firework:nth-child(10),
+.firework:nth-child(10)::before,
+.firework:nth-child(10)::after {
+  --color1: mediumorchid;
+  --color2: darkorchid;
+  --color3: violet;
+  --color4: plum;
+  --color5: thistle;
+  --color6: lavenderblush;
+  --finalSize: 35vmin;
+  left: 90%;
+  top: 80%;
+  animation-delay: -0.1s;
+}
+
+@keyframes firework {
+  0% {
+    transform: translate(var(--x), var(--initialY));
+    width: var(--initialSize);
+    opacity: 1;
+  }
+  50% {
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  100% {
+    width: var(--finalSize);
+    opacity: 0;
+  }
+}
+
+/* PORTAL */
+
+.rm-container {
+  height: 100vh;
+  position: absolute;
+  top: 10%;
+  display: none;
+}
+
+.portal {
+  background-color: #66ba4f;
+  box-shadow: 0px 0px 40px 10px #448c3f;
+  height: 13em;
+  width: 13em;
+  border-radius: 50%;
+  margin: auto;
+  background: radial-gradient(circle at 77% 80%, #fdfeb4 2.5%, transparent 2.5%),
+    radial-gradient(circle at 75% 83%, #fdfeb4 2%, transparent 2%),
+    radial-gradient(circle at 79% 83%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 45% 13%, #ffffd5 1.5%, transparent 1.5%),
+    radial-gradient(circle at 42% 13%, #ffffd5 2%, transparent 2%),
+    radial-gradient(circle at 38% 14%, #ffffd5 1.5%, transparent 1.5%),
+    radial-gradient(circle at 20% 24%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 21% 23%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 51% 13%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 81% 33%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 85% 36%, #fdfeb4 2%, transparent 2%),
+    radial-gradient(circle at 21% 46%, #fdfeb4 1%, transparent 1%),
+    radial-gradient(circle at 20% 51%, #fdfeb4 2%, transparent 2%),
+    radial-gradient(circle at 53% 51%, transparent 64%, #43a93e 64%),
+    radial-gradient(circle at 47% 59%, transparent 64%, #43843e 64%),
+    radial-gradient(circle at 47% 60%, transparent 59%, #1a9042 59%),
+    radial-gradient(circle at 50% 59%, transparent 55%, #1b863c 55%),
+    radial-gradient(circle at 45% 60%, transparent 55%, #399c49 55%),
+    radial-gradient(circle at 47% 60%, transparent 46%, #1a9042 46%),
+    radial-gradient(circle at 46% 55%, transparent 43%, #75b03b 43%),
+    radial-gradient(circle at 36% 55%, transparent 43%, #a9cb48 43%),
+    radial-gradient(circle at 50% 60%, transparent 40%, #66ba4f 40%),
+    radial-gradient(circle at 50% 53%, transparent 40%, #e5e051 37%),
+    radial-gradient(circle at 30% 48%, transparent 40%, #eaf157 37%),
+    radial-gradient(circle at 57% 69%, transparent 40%, #eaf157 40%),
+    radial-gradient(circle at 40% 88%, transparent 40%, #e9e072 37%),
+    radial-gradient(circle at 67% 54%, transparent 40%, #faeb7b 37%),
+    radial-gradient(circle at 49% 35%, transparent 40%, #fff8c5 37%),
+    radial-gradient(circle at 79% 59%, transparent 40%, #fffe9c 37%),
+    radial-gradient(circle at 50% 50%, #fdfeb4 100%, #fdfeb4 100%);
+}
+
+.rm-portalAppear {
+  animation: appear 3s linear;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* LASER */
+
+.laser-wrapper {
+  display: none;
+}
+
+.laser-beam {
+  position: absolute;
+  left: 5%;
+  top: -417%;
+  bottom: 0;
+  width: 3px;
+  height: 500%;
+  transform: rotate(90deg);
+  background: rgba(99, 195, 231, 0.6);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(99, 195, 231, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(99, 195, 231, 1);
+  box-shadow: 0px 0px 15px 0px rgba(99, 195, 231, 1);
+  transform-origin: 0 100%;
+  -webkit-animation: laser 2s forwards;
+  transform: rotate(90deg);
+  z-index: 5;
+}
+
+.laser-beam.red {
+  -webkit-animation: laser 2.5s forwards;
+  background: rgba(236, 19, 65, 0.6);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(236, 19, 65, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(236, 19, 65, 1);
+  box-shadow: 0px 0px 15px 0px rgba(236, 19, 65, 1);
+}
+
+.laser-beam.purple {
+  -webkit-animation: laser 2.3s forwards;
+  background: rgba(204, 102, 255, 0.6);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(204, 102, 255, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(204, 102, 255, 1);
+  box-shadow: 0px 0px 15px 0px rgba(204, 102, 255, 1);
+}
+
+.laser-beam.green {
+  -webkit-animation: laser 2.7s forwards;
+  background: rgba(86, 212, 69, 0.6);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(86, 212, 69, 1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(86, 212, 69, 1);
+  box-shadow: 0px 0px 15px 0px rgba(86, 212, 69, 1);
+}
+
+@-webkit-keyframes laser {
+  0% {
+    transform: rotateZ(50deg);
+  }
+  100% {
+    transform: rotateZ(80deg);
+  }
+}
+
+/* SUN */
+
+.content {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 100%;
+  height: 0%;
+  display: none;
+}
+
+.sun {
+  display: inline-block;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  background: orange;
+  box-shadow: 0 0 10px orange, 0 0 60px orange, 0 0 200px yellow, inset 0 0 80px yellow;
+  z-index: -99;
+}
+
+/* TEXT */
+
+.jebaited-title {
+  font-family: "Arial", sans-serif;
+  font-size: 5em;
+  text-align: center;
+  animation: rainbow 2s infinite linear;
+  position: absolute;
+  right: 40%;
+  top: 0%;
+  display: none;
+}
+
+@keyframes rainbow {
+  0% {
+    color: violet;
+  }
+  16.67% {
+    color: indigo;
+  }
+  33.33% {
+    color: blue;
+  }
+  50% {
+    color: green;
+  }
+  66.67% {
+    color: yellow;
+  }
+  83.33% {
+    color: orange;
+  }
+  100% {
+    color: red;
+  }
 }

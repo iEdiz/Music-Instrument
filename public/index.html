@@ -12,36 +12,142 @@
     <title>Meme Piano</title>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="wrapper__header">
-        <h2 class="wrapper__header-title">Playable PIANO</h2>
-        <div class="column volume-slider">
-          <span class="slider-span">Volume</span> <input type="range" min="0" max="1" value="0.5" step="any" />
-        </div>
-        <div class="column keys-checkbox">
-          <span class="key-span">Show Keys</span> <input type="checkbox" class="key-input" checked />
-        </div>
-      </header>
-      <ul class="piano-keys">
-        <li class="key white" data-key="a"><span>a</span></li>
-        <li class="key black" data-key="w"><span>w</span></li>
-        <li class="key white" data-key="s"><span>s</span></li>
-        <li class="key black" data-key="e"><span>e</span></li>
-        <li class="key white" data-key="d"><span>d</span></li>
-        <li class="key white" data-key="f"><span>f</span></li>
-        <li class="key black" data-key="t"><span>t</span></li>
-        <li class="key white" data-key="g"><span>g</span></li>
-        <li class="key black" data-key="y"><span>y</span></li>
-        <li class="key white" data-key="h"><span>h</span></li>
-        <li class="key black" data-key="u"><span>u</span></li>
-        <li class="key white" data-key="j"><span>j</span></li>
-        <li class="key white" data-key="k"><span>k</span></li>
-        <li class="key black" data-key="o"><span>o</span></li>
-        <li class="key white" data-key="l"><span>l</span></li>
-        <li class="key black" data-key="p"><span>p</span></li>
-        <li class="key white" data-key=";"><span>;</span></li>
-      </ul>
+    <div class="clouds">
+      <div class="clouds-1">
+        <img
+          src="https://www.pinclipart.com/picdir/big/553-5531915_undertale-sans-in-game-clipart.png"
+          alt=""
+          class="sans-undertale"
+        />
+      </div>
+      <div class="clouds-2"></div>
+      <div class="clouds-3"></div>
     </div>
+    <div class="content">
+      <div class="sun"></div>
+    </div>
+    <div class="firework-wrapper">
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+      <div class="firework"></div>
+    </div>
+    <div class="canvaswrap">
+      <canvas id="canvas1"></canvas>
+      <canvas id="canvas2"></canvas>
+      <canvas id="canvas3"></canvas>
+    </div>
+    <div class="container">
+      <div class="wrapper">
+        <header class="wrapper__header">
+          <h2 class="wrapper__header-title">Playable PIANO</h2>
+          <div class="column volume-slider">
+            <span class="slider-span">Volume</span> <input type="range" min="0" max="1" value="0.5" step="any" />
+          </div>
+          <div class="column keys-checkbox">
+            <span class="key-span">Show Keys</span> <input type="checkbox" class="key-input" checked />
+          </div>
+        </header>
+        <ul class="piano-keys">
+          <li class="key white" data-key="a"><span>a</span></li>
+          <li class="key black" data-key="w"><span>w</span></li>
+          <li class="key white" data-key="s"><span>s</span></li>
+          <li class="key black" data-key="e"><span>e</span></li>
+          <li class="key white" data-key="d"><span>d</span></li>
+          <li class="key white" data-key="f"><span>f</span></li>
+          <li class="key black" data-key="t"><span>t</span></li>
+          <li class="key white" data-key="g"><span>g</span></li>
+          <li class="key black" data-key="y"><span>y</span></li>
+          <li class="key white" data-key="h"><span>h</span></li>
+          <li class="key black" data-key="u"><span>u</span></li>
+          <li class="key white" data-key="j"><span>j</span></li>
+          <li class="key white" data-key="k"><span>k</span></li>
+          <li class="key black" data-key="o"><span>o</span></li>
+          <li class="key white" data-key="l"><span>l</span></li>
+          <li class="key black" data-key="p"><span>p</span></li>
+          <li class="key white" data-key=";"><span>;</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="thunderstorm-wrapper">
+      <div class="cloud"></div>
+      <div class="lightning"></div>
+      <div class="rain"></div>
+    </div>
+
+    <div class="laser-wrapper">
+      <div class="laser-beam"></div>
+      <div class="laser-beam red"></div>
+      <div class="laser-beam purple"></div>
+      <div class="laser-beam green"></div>
+    </div>
+
+    <footer class="footer">
+      <h1 class="jebaited-title">JEBAITED</h1>
+      <div class="rm-container">
+        <div class="portal">
+          <img
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a5bffb50-795a-4fcd-b892-52caa775b601/dewh6ww-b89b1fb9-f9c8-43c2-8f0f-655d464b4693.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E1YmZmYjUwLTc5NWEtNGZjZC1iODkyLTUyY2FhNzc1YjYwMVwvZGV3aDZ3dy1iODliMWZiOS1mOWM4LTQzYzItOGYwZi02NTVkNDY0YjQ2OTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.NmE8WvZCnWy81zU6TE2qeJI-h6BdRrAIbevIgXLRjZo"
+            alt=""
+            class="rickMorty"
+          />
+          <img src="https://pngimg.com/uploads/rick_morty/rick_morty_PNG35.png" alt="" class="rickMortyAwayImage" />
+        </div>
+      </div>
+
+      <div class="dancingImages">
+        <img src="https://clipart-library.com/img/1978405.gif" alt="" class="dancingLisa" />
+        <img src="https://cdn3.emoji.gg/emojis/9858-jakewiggle.gif" alt="" class="dancingJake" />
+      </div>
+
+      <img src="https://media.tenor.com/RcX3hUY425kAAAAj/toothless-dragon-toothless.gif" alt="" class="toothless" />
+      <img
+        src="https://png.pngtree.com/png-clipart/20230106/ourmid/pngtree-chill-sitting-capybara-png-image_6553139.png"
+        alt=""
+        class="capybara"
+      />
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/035/387/775/original/sad-capybara-animal-png.png"
+        alt=""
+        class="sadCapy"
+      />
+      <img
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/600cf92c-ca54-4525-af77-d73d33c4bc0f/dg1q39x-4c2b7eae-d35c-40cf-8e1c-5e0e876bc0cc.png/v1/fill/w_1280,h_794/titanus_kraken_png_by_jurassicworldcards_dg1q39x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk0IiwicGF0aCI6IlwvZlwvNjAwY2Y5MmMtY2E1NC00NTI1LWFmNzctZDczZDMzYzRiYzBmXC9kZzFxMzl4LTRjMmI3ZWFlLWQzNWMtNDBjZi04ZTFjLTVlMGU4NzZiYzBjYy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.nBQEnNo9yif-RUP2qi84Bd8xRVq1PmrUmL2B7Y6F1r4"
+        alt=""
+        class="kraken"
+      />
+      <img
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dbc1935-6542-4ee3-822f-135cff4ba62c/dfnfmr7-1dfdc1a2-ee86-4ad3-a422-3344ba9e387c.png/v1/fill/w_622,h_1284/captain_jack_sparrow_1__dmtnt____transparent__by_speedcam_dfnfmr7-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjExMiIsInBhdGgiOiJcL2ZcLzFkYmMxOTM1LTY1NDItNGVlMy04MjJmLTEzNWNmZjRiYTYyY1wvZGZuZm1yNy0xZGZkYzFhMi1lZTg2LTRhZDMtYTQyMi0zMzQ0YmE5ZTM4N2MucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Cbn9RP0cPGIjHBJmvC1e56GyfCFTODR5iAQB1TIGlPw"
+        alt=""
+        class="jack-sparrow"
+      />
+      <div class="Ocean">
+        <svg class="Wave" viewBox="0 0 12960 1120">
+          <path
+            d="M9720,320C8100,320,8100,0,6480,0S4860,320,3240,320,1620,0,0,0V1120H12960V0C11340,0,11340,320,9720,320Z"
+          >
+            <animate
+              dur="5s"
+              repeatCount="indefinite"
+              attributeName="d"
+              values="
+                    M9720,320C8100,320,8100,0,6480,0S4860,320,3240,320,1620,0,0,0V1120H12960V0C11340,0,11340,320,9720,320Z;
+                    M9720,0C8100,0,8100,319,6480,319S4860,0,3240,0,1620,320,0,320v800H12960V320C11340,320,11340,0,9720,0Z;
+                    M9720,320C8100,320,8100,0,6480,0S4860,320,3240,320,1620,0,0,0V1120H12960V0C11340,0,11340,320,9720,320Z
+                  "
+            />
+          </path>
+        </svg>
+      </div>
+    </footer>
     <script src="./public/scripts.js"></script>
   </body>
 </html>
