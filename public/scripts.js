@@ -1,3 +1,11 @@
+const canvas1 = document.getElementById("canvas1");
+const canvas2 = document.getElementById("canvas2");
+const canvas3 = document.getElementById("canvas3");
+
+const ctx1 = canvas1.getContext("2d");
+const ctx2 = canvas2.getContext("2d");
+const ctx3 = canvas3.getContext("2d");
+
 const pianoKeys = document.querySelectorAll(".piano-keys .key");
 const volumeSlider = document.querySelector(".volume-slider input");
 const body = document.querySelector("body");
@@ -26,14 +34,6 @@ const jebaited = document.querySelector(".jebaited-title");
 const endtext = document.querySelector(".endtext-wrapper");
 const endScreen = document.querySelector(".background-container");
 const confetti = document.querySelector(".confetti");
-
-const canvas1 = document.getElementById("canvas1");
-const canvas2 = document.getElementById("canvas2");
-const canvas3 = document.getElementById("canvas3");
-
-const ctx1 = canvas1.getContext("2d");
-const ctx2 = canvas2.getContext("2d");
-const ctx3 = canvas3.getContext("2d");
 
 // PIANO CODE
 
@@ -278,7 +278,7 @@ const lightning = () => {
   };
 
   const createRainTrough = () => {
-    RainTrough.length = 0; 
+    RainTrough.length = 0;
     for (let i = 0; i < rainthroughnum; i++) {
       RainTrough.push({
         x: random(0, w),
@@ -292,7 +292,7 @@ const lightning = () => {
   };
 
   const createRain = () => {
-    rain.length = 0; 
+    rain.length = 0;
     for (let i = 0; i < rainnum; i++) {
       rain.push({
         x: Math.random() * w,
