@@ -4,6 +4,8 @@ const body = document.querySelector("body");
 const checkbox = document.querySelector(".keys-checkbox input");
 const waves = document.querySelector(".footer");
 const canvas = document.querySelector(".canvaswrap");
+const header = document.querySelector(".wrapper__header-title");
+
 const capybara = document.querySelector(".capybara");
 const sadCapy = document.querySelector(".sadCapy");
 const kraken = document.querySelector(".kraken");
@@ -13,15 +15,22 @@ const rickMorty = document.querySelector(".rickMorty");
 const rickMortyAwayImage = document.querySelector(".rickMortyAwayImage");
 const toothless = document.querySelector(".toothless");
 const dancers = document.querySelector(".dancingImages");
+const rickAstley = document.querySelector(".rickAstley");
+
 const fireworks = document.querySelector(".firework-wrapper");
 const sun = document.querySelector(".content");
 const clouds = document.querySelector(".clouds");
 const portal = document.querySelector(".rm-container");
 const laser = document.querySelector(".laser-wrapper");
 const jebaited = document.querySelector(".jebaited-title");
+const endtext = document.querySelector(".endtext-wrapper");
+const endScreen = document.querySelector(".background-container");
+const confetti = document.querySelector(".confetti");
+
 const canvas1 = document.getElementById("canvas1");
 const canvas2 = document.getElementById("canvas2");
 const canvas3 = document.getElementById("canvas3");
+
 const ctx1 = canvas1.getContext("2d");
 const ctx2 = canvas2.getContext("2d");
 const ctx3 = canvas3.getContext("2d");
@@ -29,13 +38,22 @@ const ctx3 = canvas3.getContext("2d");
 // PIANO CODE
 
 let allKeys = [],
-  audio = new Audio("public/tunes/a.mp3");
+  audio = new Audio("public/pianoTunes/a.wav");
 
 let isLightningActive = false;
 let isRainActive = false;
+let lettersShowing = true;
 
 const playTune = (key) => {
-  audio.src = `public/tunes/${key}.mp3`;
+  let tuneToPlay;
+
+  if (!lettersShowing) {
+    tuneToPlay = `public/pianoTunes/${key}.wav`;
+  } else {
+    tuneToPlay = `public/tunes/${key}.mp3`;
+  }
+
+  audio.src = tuneToPlay;
   audio.play();
 
   const clickedKey = document.querySelector(`[data-key="${key}"]`);
@@ -44,100 +62,150 @@ const playTune = (key) => {
     clickedKey.classList.remove("active");
   }, 150);
 
-  if (clickedKey.dataset.key === "a") {
-    body.style.backgroundColor = "#222";
+  if (lettersShowing) {
+    if (clickedKey.dataset.key === "a") {
+      body.style.backgroundColor = "#222";
 
-    canvas.style.display = "block";
-    waves.style.display = "block";
+      canvas.style.display = "block";
+      waves.style.display = "block";
 
-    capybara.classList.add("capybaraActive");
-    kraken.classList.add("krakenActive");
-    capybara.style.display = "block";
-    kraken.style.display = "block";
+      capybara.classList.add("capybaraActive");
+      kraken.classList.add("krakenActive");
+      capybara.style.display = "block";
+      kraken.style.display = "block";
 
-    isLightningActive = true;
-    isRainActive = true;
+      isLightningActive = true;
+      isRainActive = true;
 
-    lightning();
-  }
+      lightning();
+    }
 
-  if (clickedKey.dataset.key === "s") {
-    jacksparrow.classList.add("jsActive");
-  }
+    if (clickedKey.dataset.key === "s") {
+      jacksparrow.classList.add("jsActive");
+      jacksparrow.style.display = "block";
+    }
 
-  if (clickedKey.dataset.key === "d") {
-    jacksparrow.classList.add("jsShooting");
-    kraken.classList.add("krakenDead");
-    kraken.classList.remove("krakenActive");
-  }
+    if (clickedKey.dataset.key === "d") {
+      jacksparrow.classList.add("jsShooting");
+      kraken.classList.add("krakenDead");
+      kraken.classList.remove("krakenActive");
+    }
 
-  if (clickedKey.dataset.key === "f") {
-    fireworks.style.display = "block";
-    canvas.style.display = "none";
-    body.style.backgroundColor = "#05040c";
-    capybara.classList.add("capybaraDance");
-  }
+    if (clickedKey.dataset.key === "f") {
+      fireworks.style.display = "block";
+      canvas.style.display = "none";
+      body.style.backgroundColor = "#05040c";
+      capybara.classList.add("capybaraDance");
+    }
 
-  if (clickedKey.dataset.key === "g") {
-    fireworks.style.display = "none";
-    capybara.style.animation = "none";
-    body.style.background = "linear-gradient(#000, #333)";
-    clouds.style.display = "block";
-    jacksparrow.classList.remove("jsShooting");
-    jacksparrow.classList.remove("jsActive");
-    jacksparrow.classList.add("jsDead");
-  }
+    if (clickedKey.dataset.key === "g") {
+      fireworks.style.display = "none";
+      capybara.style.animation = "none";
+      body.style.background = "linear-gradient(#000, #333)";
+      clouds.style.display = "block";
+      jacksparrow.classList.remove("jsShooting");
+      jacksparrow.classList.remove("jsActive");
+      jacksparrow.classList.add("jsDead");
+    }
 
-  if (clickedKey.dataset.key === "h") {
-    jacksparrow.classList.add("jsSink");
-    kraken.classList.add("krakenSink");
-    capybara.style.display = "none";
-    sadCapy.style.display = "block";
-  }
+    if (clickedKey.dataset.key === "h") {
+      jacksparrow.classList.add("jsSink");
+      kraken.classList.add("krakenSink");
+      capybara.style.display = "none";
+      sadCapy.style.display = "block";
+    }
 
-  if (clickedKey.dataset.key === "j") {
-    sans.style.display = "block";
-    sans.classList.add("sansArrive");
-    capybara.style.display = "block";
-    sadCapy.style.display = "none";
-  }
+    if (clickedKey.dataset.key === "j") {
+      sans.style.display = "block";
+      sans.classList.add("sansArrive");
+      capybara.style.display = "block";
+      sadCapy.style.display = "none";
+      jebaited.innerHTML = "Who that?";
+      jebaited.style.display = "block";
+    }
 
-  if (clickedKey.dataset.key === "k") {
-    portal.style.display = "block";
-    portal.classList.add("rm-portalAppear");
-    rickMorty.style.display = "block";
-    rickMorty.classList.add("rmArrive");
-  }
+    if (clickedKey.dataset.key === "k") {
+      portal.style.display = "block";
+      portal.classList.add("rm-portalAppear");
+      rickMorty.style.display = "block";
+      rickMorty.classList.add("rmArrive");
+      jebaited.style.display = "none";
+    }
 
-  if (clickedKey.dataset.key === "l") {
-    laser.style.display = "block";
-  }
+    if (clickedKey.dataset.key === "l") {
+      laser.style.display = "block";
+      setTimeout(() => {
+        sans.classList.add("sansDead");
+      }, 1000);
+    }
 
-  if (clickedKey.dataset.key === "w") {
-    rickMorty.style.display = "none";
-    rickMortyAwayImage.style.display = "block";
-    rickMortyAwayImage.classList.add("rickMortyAway");
-    laser.style.display = "none";
-    sans.classList.remove("sansArrive");
-    sans.classList.add("sansDead");
-  }
+    if (clickedKey.dataset.key === "w") {
+      rickMorty.style.display = "none";
+      rickMortyAwayImage.style.display = "block";
+      rickMortyAwayImage.classList.add("rickMortyAway");
+      laser.style.display = "none";
+    }
 
-  if (clickedKey.dataset.key === "e") {
-    toothless.style.display = "block";
-    clouds.style.display = "none";
-    body.style.background = "skyblue";
-    sun.style.display = "block";
-    portal.style.display = "none";
-    rickMortyAwayImage.style.display = "none";
-    sans.classList.add("sansFade");
-    capybara.classList.remove("capybaraActive");
-    capybara.classList.add("capybaraDance");
-    capybara.classList.add("capybaraMove");
-  }
+    if (clickedKey.dataset.key === "e") {
+      capybara.style = "";
+      toothless.style.display = "block";
+      clouds.style.display = "none";
+      body.style.background = "skyblue";
+      sun.style.display = "block";
+      capybara.style.display = "block";
+      portal.style.display = "none";
+      rickMortyAwayImage.style.display = "none";
+      capybara.classList.remove("capybaraActive");
+      capybara.classList.add("capybaraDance");
+      capybara.classList.add("capybaraMove");
+    }
 
-  if (clickedKey.dataset.key === "y") {
-    jebaited.style.display = "block";
-    dancers.style.display = "block";
+    if (clickedKey.dataset.key === "t") {
+      jebaited.innerHTML = "Hmm...?";
+      jebaited.style.display = "block";
+    }
+
+    if (clickedKey.dataset.key === "y") {
+      jebaited.innerHTML = "JEBAITED";
+      jebaited.style.display = "block";
+      dancers.style.display = "block";
+    }
+
+    if (clickedKey.dataset.key === "u") {
+      jebaited.innerHTML = "Are you?";
+    }
+
+    if (clickedKey.dataset.key === "o") {
+      jebaited.innerHTML = "";
+      sans.style.display = "none";
+      dancers.style.display = "none";
+      toothless.style.display = "none";
+      clouds.style.display = "block";
+      canvas.style.display = "block";
+      body.style.backgroundColor = "#05040c";
+      sun.style.display = "none";
+      capybara.classList.remove("capybaraDance");
+      capybara.classList.remove("capybaraMove");
+      capybara.classList.add("capyDead");
+
+      isLightningActive = true;
+      isRainActive = true;
+
+      lightning();
+    }
+
+    if (clickedKey.dataset.key === ";") {
+      rickAstley.style.display = "block";
+    }
+
+    if (clickedKey.dataset.key === "p") {
+      endScreen.style.display = "block";
+      setTimeout(() => {
+        fireworks.style.display = "block";
+        confetti.style.display = "flex";
+        endtext.style.display = "flex";
+      }, 4000);
+    }
   }
 };
 
@@ -152,6 +220,13 @@ const handleVolume = (e) => {
 
 const hideShowLetters = () => {
   pianoKeys.forEach((key) => key.classList.toggle("hide"));
+  lettersShowing = !lettersShowing;
+
+  if (lettersShowing) {
+    header.innerHTML = "MEME PIANO";
+  } else {
+    header.innerHTML = "Just A PIANO";
+  }
 };
 
 const pressedKey = (e) => {
@@ -302,7 +377,6 @@ const lightning = () => {
         ctx3.lineTo(light.path[pc].x, light.path[pc].y);
       }
       if (Math.floor(random(0, 30)) === 1) {
-        //to fos apo piso
         ctx3.fillStyle = "rgba(255, 255, 255, " + random(1, 3) / 100 + ")";
         ctx3.fillRect(0, 0, w, h);
       }

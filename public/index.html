@@ -12,6 +12,11 @@
     <title>Meme Piano</title>
   </head>
   <body>
+    <div class="background-container">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="end-clouds"></div>
+    </div>
     <div class="clouds">
       <div class="clouds-1">
         <img
@@ -26,6 +31,7 @@
     <div class="content">
       <div class="sun"></div>
     </div>
+
     <div class="firework-wrapper">
       <div class="firework"></div>
       <div class="firework"></div>
@@ -39,6 +45,23 @@
       <div class="firework"></div>
       <div class="firework"></div>
     </div>
+
+    <div class="confetti">
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+      <div class="confetti-piece"></div>
+    </div>
+
     <div class="canvaswrap">
       <canvas id="canvas1"></canvas>
       <canvas id="canvas2"></canvas>
@@ -47,7 +70,7 @@
     <div class="container">
       <div class="wrapper">
         <header class="wrapper__header">
-          <h2 class="wrapper__header-title">Playable PIANO</h2>
+          <h2 class="wrapper__header-title">MEME PIANO</h2>
           <div class="column volume-slider">
             <span class="slider-span">Volume</span> <input type="range" min="0" max="1" value="0.5" step="any" />
           </div>
@@ -76,7 +99,7 @@
         </ul>
       </div>
     </div>
-
+    <div class="endtext-wrapper"><h1 class="end-title">THANK YOU!</h1></div>
     <div class="thunderstorm-wrapper">
       <div class="cloud"></div>
       <div class="lightning"></div>
@@ -89,6 +112,8 @@
       <div class="laser-beam purple"></div>
       <div class="laser-beam green"></div>
     </div>
+
+    <img src="https://media.tenor.com/CHc0B6gKHqUAAAAi/deadserver.gif" alt="" class="rickAstley" />
 
     <footer class="footer">
       <h1 class="jebaited-title">JEBAITED</h1>
@@ -106,6 +131,12 @@
       <div class="dancingImages">
         <img src="https://clipart-library.com/img/1978405.gif" alt="" class="dancingLisa" />
         <img src="https://cdn3.emoji.gg/emojis/9858-jakewiggle.gif" alt="" class="dancingJake" />
+        <img src="https://i.imgur.com/3PkLWL6.gif" alt="" class="dancingPepe" />
+        <img
+          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/022c458a-1e2d-4538-90cf-f36104553016/d8c3n1a-c5246931-63ec-40a5-80ff-2e61f541b0a0.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAyMmM0NThhLTFlMmQtNDUzOC05MGNmLWYzNjEwNDU1MzAxNlwvZDhjM24xYS1jNTI0NjkzMS02M2VjLTQwYTUtODBmZi0yZTYxZjU0MWIwYTAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lhbMVj10mUmw42hoXF6561mbsXoRQi7Zzh0cb9Hj4iw"
+          alt=""
+          class="dancingDog"
+        />
       </div>
 
       <img src="https://media.tenor.com/RcX3hUY425kAAAAj/toothless-dragon-toothless.gif" alt="" class="toothless" />
@@ -129,10 +160,20 @@
         alt=""
         class="jack-sparrow"
       />
-      <div class="Ocean">
-        <svg class="Wave" viewBox="0 0 12960 1120">
+      <div class="ocean">
+        <svg class="wave" viewBox="0 0 12960 1120">
+          <defs>
+            <linearGradient id="deepSeaGradient" gradientTransform="rotate(90)">
+              <stop offset="0%" style="stop-color: #001f3f; stop-opacity: 1" />
+              <stop offset="25%" style="stop-color: #003366; stop-opacity: 1" />
+              <stop offset="50%" style="stop-color: #005080; stop-opacity: 1" />
+              <stop offset="75%" style="stop-color: #007399; stop-opacity: 1" />
+              <stop offset="100%" style="stop-color: #0099b3; stop-opacity: 1" />
+            </linearGradient>
+          </defs>
           <path
             d="M9720,320C8100,320,8100,0,6480,0S4860,320,3240,320,1620,0,0,0V1120H12960V0C11340,0,11340,320,9720,320Z"
+            fill="url(#deepSeaGradient)"
           >
             <animate
               dur="5s"
