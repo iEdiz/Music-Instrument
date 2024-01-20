@@ -278,7 +278,7 @@ const lightning = () => {
   };
 
   const createRainTrough = () => {
-    RainTrough.length = 0; // Clear the array
+    RainTrough.length = 0; 
     for (let i = 0; i < rainthroughnum; i++) {
       RainTrough.push({
         x: random(0, w),
@@ -292,7 +292,7 @@ const lightning = () => {
   };
 
   const createRain = () => {
-    rain.length = 0; // Clear the array
+    rain.length = 0; 
     for (let i = 0; i < rainnum; i++) {
       rain.push({
         x: Math.random() * w,
@@ -421,7 +421,7 @@ const lightning = () => {
       if (lightTimeCurrent >= lightTimeTotal) {
         createLightning();
         lightTimeCurrent = 0;
-        lightTimeTotal = 200; //rand(100, 200)
+        lightTimeTotal = 200;
       }
       drawLightning();
     } else {
